@@ -2,24 +2,37 @@ import React, { PropTypes } from 'react'
 import ReactDOM from 'react-dom'
 
 const TodoComponent = React.createClass({
-  render () {
-    return (
-      <div>
-        <p><strong>Cheese Name:</strong> {this.props.cheese.name}</p>
-        <p><strong>Cheese Smell Factor:</strong> {this.props.cheese.smellFactor}</p>
-        <p><strong>Cheese Price:</strong> {this.props.cheese.price}</p>
+  getInitialState () {
+    return {
+      todos: ['wash up', 'eat some cheese', 'take a nap'],
+      age: 30
+    }
+  },
 
+  render () {
+    var ager = setTimeout(()=>{
+      this.setState({
+        age: 35
+      })
+    }, 5000)
+    var todos = this.state.todos;
+    todos = todos.map((item, index)=>{
+      return (
+        <li>{item}, {index}</li>
+      )
+    })
+    return (
+      <div id="todo-list">
+        <p>The Busiest People have the most leisure....</p>
+        <p>{this.state.age}</p>
+        <ul>
+          {todos}
+        </ul>
       </div>
     )
-  }
+  } //render
 })
 
-const myCheese = {
-  name: 'Gouda',
-  smellFactor: 'Extreme pong',
-  price: '3.50'
-}
-
-ReactDOM.render(<TodoComponent mssg="i like cheese" cheese={myCheese}/>, document.getElementById('todo-wrapper'))
+ReactDOM.render(<TodoComponent />, document.getElementById('todo-wrapper'))
 
 export default TodoComponent
