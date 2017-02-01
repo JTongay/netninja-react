@@ -18,7 +18,7 @@ const TodoComponent = React.createClass({
     var todos = this.state.todos;
     todos = todos.map((item, index)=>{
       return (
-        <li>{item}, {index}</li>
+        <li key={item.id}>{item}, {index}</li>
       )
     })
     return (
