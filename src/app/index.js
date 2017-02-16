@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 const TodoComponent = React.createClass({
   getInitialState () {
     return {
-      todos: ['wash up', 'eat some cheese', 'take a nap'],
+      todos: ['wash up', 'eat some cheese', 'take a nap', 'booyah fam'],
       age: 30
     }
   },
