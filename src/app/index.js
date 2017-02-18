@@ -30,7 +30,7 @@ const TodoComponent = React.createClass({
         var todos = this.state.todos;
         todos = todos.map((item, index) => {
             return (
-                <li key={item.id}>{item}, {index}</li>
+                <TodoItem item={item} key={index}/>
             )
         })
         var things = this.state.things;
@@ -53,6 +53,18 @@ const TodoComponent = React.createClass({
             </div>
         )
     } //render
+})
+
+const TodoItem = React.createClass({
+  render: function() {
+    return (
+      <li>
+        <div className="todo-item">
+          <span className="item-name">{this.props.item}</span>
+        </div>
+      </li>
+    )
+  }
 })
 
 ReactDOM.render(
