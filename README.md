@@ -11,3 +11,15 @@ Props
 
 Nesting Components
   - It does exactly what you would think it does. It puts a component inside a parent component.
+
+Events
+  - Handles interactivity.
+
+Modularize
+  - Split your files up into different files.
+  - just do it with module.exports or import/export in es6.
+
+Input Refs
+  - This is for forms and such.
+  - Use 'ref' in your HTML in the input tag and set it equal to something (just like ng-model in Angular)
+  - In the onSubmit function you call in the form, you can reference it by saying "this.refs" and then '.whateveryouputinyourref'

@@ -1,6 +1,13 @@
 import React, {PropTypes} from 'react'
 import ReactDOM from 'react-dom'
 
+//Importing other components
+import TodoItem from './todoitem'
+import AddItem from './additem'
+
+//Import css
+require('./css/index.css')
+
 const TodoComponent = React.createClass({
     getInitialState() {
         return {
@@ -30,7 +37,7 @@ const TodoComponent = React.createClass({
         var todos = this.state.todos;
         todos = todos.map((item, index) => {
             return (
-                <TodoItem item={item} key={index}/>
+                <TodoItem item={item} key={index} onDelete={this.onDelete}/>
             )
         })
         var things = this.state.things;
@@ -46,26 +53,33 @@ const TodoComponent = React.createClass({
                 <ul>
                     {todos}
                 </ul>
+                <AddItem onAdd={this.onAdd}/>
                 <p>Here are some people</p>
                 <ul>
                   <li>{things}</li>
                 </ul>
             </div>
         )
-    } //render
+    }, //render
+
+    onDelete: function(item){
+      var updatedTodos = this.state.todos.filter((val, index)=>{
+        return item !== val
+      })
+      this.setState({
+        todos: updatedTodos
+      })
+    },
+
+    onAdd: function(item) {
+      var updatedTodos = this.state.todos;
+      updatedTodos.push(item);
+      this.setState({
+        todos: updatedTodos
+      })
+    }
 })
 
-const TodoItem = React.createClass({
-  render: function() {
-    return (
-      <li>
-        <div className="todo-item">
-          <span className="item-name">{this.props.item}</span>
-        </div>
-      </li>
-    )
-  }
-})
 
 ReactDOM.render(
     <TodoComponent/>, document.getElementById('todo-wrapper'))
