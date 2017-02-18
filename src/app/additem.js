@@ -1,5 +1,8 @@
 import React, { PropTypes } from 'react'
 
+//Import css
+import './css/additem.css'
+
 const AddItem = React.createClass({
   render () {
     return (
