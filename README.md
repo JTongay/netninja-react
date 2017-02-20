@@ -23,3 +23,27 @@ Input Refs
   - This is for forms and such.
   - Use 'ref' in your HTML in the input tag and set it equal to something (just like ng-model in Angular)
   - In the onSubmit function you call in the form, you can reference it by saying "this.refs" and then '.whateveryouputinyourref'
+
+Component Lifecycle
+  - Certain functions in a React Component fire at a certain time, like the "getInitialState" function fires before "render"
+  - Mounting Lifecycle Functions
+    1. getInitialState
+      - Set the initial state of the component
+    2. componentWillMount
+      - Any last minute prep before component mounts
+    3. Render
+      - Returns HTML to add to the DOM
+    4. componentDidMount
+      - Fires after component mounts to the DOM
+      - Good place to load in external data
+
+Updating Lifecycle Functions
+  1. componentWillReceiveProps
+    - Called before a component receives any new props
+    - Can compare the current and new props and change state
+  2. shouldComponentUpdate
+    - Can return false if no update wanted
+  3. componentWillUpdate
+  4. render
+  5. componentDidUpdate
+    - Operate on the DOM or perform network requests.

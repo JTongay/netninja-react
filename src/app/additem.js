@@ -16,6 +16,7 @@ const AddItem = React.createClass({
   handleSubmit: function(event){
     event.preventDefault()
     this.props.onAdd(this.refs.newItem.value)
+    this.refs.newItem.value = '';
   }
 })
 
